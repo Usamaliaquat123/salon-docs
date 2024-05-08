@@ -252,7 +252,7 @@ yarn docs-build-api
 
 When you push some changes few CI checks will run, if your PR fails one of them, you can fix it by running the following:
 
-![CI Checks](website/static/img/website/ci-checks.png)
+![CI Checks](static/img/website/ci-checks.png)
 
 | **Check Name**     | **Description**              | **Fix/verify using**  |
 | ------------------ | ---------------------------- | --------------------- |
