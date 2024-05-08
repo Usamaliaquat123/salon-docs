@@ -26,11 +26,11 @@ yarn-error.log*
 !.yarn/sdks
 !.yarn/versions
 
-website/docs/main/Component.md
-website/translated_docs
+# website/docs/main/Component.md
+# website/translated_docs
 # website/build/
-website/yarn.lock
+# website/yarn.lock
 website/node_modules
 
-website/i18n/*
+# website/i18n/*
 !website/i18n/en.json
