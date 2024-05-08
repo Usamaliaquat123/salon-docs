@@ -4,6 +4,7 @@
   "packageManager": "yarn@3.2.4",
   "scripts": {
     "examples": "docusaurus examples",
+    "serve": "docusaurus serve",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "deploy": "docusaurus deploy",
