@@ -5,7 +5,8 @@
 </p>
 
 <p align="center">
-  Cross Platform <a href="https://reactnative.dev">React Native</a> UI Toolkit
+  Salon App | Book local beauty and wellness services
+
 </p>
 
 <p align="center">

@@ -1,37 +1,10 @@
 {
-  "Display": "React Native Elements",
+  "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@rneui/*": ["./packages/*/src"],
-      "@rneui/base/dist/*": ["./packages/base/src/*"]
-    },
-    "removeComments": true,
-    "composite": true,
-    "declaration": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "lib": ["esnext", "dom"],
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noImplicitUseStrict": false,
-    "noStrictGenericChecks": false,
     "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "target": "ES6",
-    "allowJs": true
+    "jsx": "preserve",
+    "downlevelIteration": true
   },
-  "exclude": [
-    "website",
-    "example",
-    "packages/*/src/**/__tests__",
-    "packages/*/coverage/**",
-    "packages/*/dist/**",
-    "packages/*/*.config.js"
-  ]
+  "include": ["src/"],
+  "exclude": ["node_modules", "docs/playground/**/*"]
 }
