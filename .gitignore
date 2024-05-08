@@ -16,7 +16,7 @@ jsconfig.json
 .idea/
 # website/build
 package-lock.json
-build
+# build
 *.orig
 .changelog
 .docgen/
