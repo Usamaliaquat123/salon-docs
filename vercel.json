@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "website/",
+        "src": "website/build",
         "use": "@vercel/static-build"
       }
     ],
@@ -10,7 +10,7 @@
       { "handle": "filesystem" },
       {
         "src": "/(.*)",
-        "dest": "/website/$1"
+        "dest": "/website/build/$1"
       }
     ]
   }
