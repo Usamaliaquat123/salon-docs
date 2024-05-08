@@ -5,7 +5,8 @@
 </p>
 
 <p align="center">
-  Cross Platform <a href="https://reactnative.dev">React Native</a> UI Toolkit
+  Salon App |  Book local beauty and wellness services
+
 </p>
 
 <p align="center">
@@ -69,13 +70,36 @@ If you are looking to contribute to the React Native Elements App, click
 [here](https://github.com/react-native-elements/react-native-elements/tree/next/example) to
 view the implementation & run the RNE expo app locally.
 
+## VS Code Extension
+
+Install the [React Native Elements VS Code Extension](https://marketplace.visualstudio.com/items?itemName=rne.snippets) to speed up development.
 
 ## Documentation
 
 [View the full docs here](https://reactnativeelements.com/docs/overview)
 
+## Contributing
 
+Interested in contributing to this repo? Check out our
+[Contributing Guide](https://reactnativeelements.com/docs/contributing)
+and submit a PR for a new feature/bug fix.
 
+A big shoutout to all our contributors! You could be here too!
+
+<a href="https://github.com/react-native-elements/react-native-elements/graphs/contributors"><img src="https://opencollective.com/react-native-elements/contributors.svg?width=890&button=false" /></a>
+
+### First Contributors
+
+We encourage everyone to contribute & submit PR's especially first-time
+contributors. Look for the label `Good First Issue` on the issues. Click
+[here](https://github.com/react-native-elements/react-native-elements/labels/%F0%9F%91%B6%20Good%20First%20Issue)
+to see them.
+
+If there is something you's like to see or request a new feature, please submit
+an
+[issue](https://github.com/react-native-elements/react-native-elements/issues/new)
+or a
+[pull request](https://github.com/react-native-elements/react-native-elements/pulls).
 
 ### Core Contributors
 
