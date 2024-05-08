@@ -2,14 +2,15 @@
     "version": 2,
     "builds": [
       {
-        "src": "website/build",
-        "use": "@vercel/static-build"
+        "src": "website/build/**",
+        "use": "@vercel/static-build",
+        "config": { "includeFiles": ["website/build/**"] }
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/website/build/$1"
+        "dest": "website/build/$1"
       }
     ]
   }
