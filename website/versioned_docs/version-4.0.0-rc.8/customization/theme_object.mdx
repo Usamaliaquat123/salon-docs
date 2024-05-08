@@ -1,0 +1,68 @@
+---
+title: useHUser()
+sidebar_position: 1
+---
+
+import { Palette } from './Color';
+
+```tsx
+const {
+    loading,
+    language,
+    themeMode,
+    accessToken,
+    loginInfo,
+    userInfo,
+} = useHUser()
+
+console.log(loading) /** Loading state of the app **/
+console.log(language) /** Language state of the app **/
+console.log(themeMode) /** Current theme of the app **/
+console.log(accessToken) /** User Current Token of the app **/
+console.log(loginInfo) /** loginInfo state of the app **/
+console.log(userInfo) /** UserInfo state of the app **/
+
+```
+
+
+## User Information
+you can get the current authenticated user information
+```tsx
+const { userInfo } = useHUser()
+
+console.log(loginInfo) /** loginInfo state of the app **/
+
+```
+
+## Language
+language will show you the current app level language
+
+```tsx
+const { language } = useHUser()
+
+console.log(language) /** Language state of the app **/
+
+```
+
+## Theme Mode
+current app theme
+
+```tsx
+const { themeMode } = useHUser()
+
+console.log(themeMode) /** Current theme of the app **/
+
+```
+
+
+## Loading
+loading state of the app
+```tsx
+const { loading } = useHUser()
+
+console.log(loading) /** Loading state of the app **/
+
+```
+
+
+### Spacing
