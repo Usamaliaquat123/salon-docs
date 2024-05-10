@@ -29,10 +29,10 @@ const Home: React.FunctionComponent<{}> = () => {
                 <p className="margin-vert--md margin-horiz--md">
                   <CodeBlock language="tsx">{exampleCode}</CodeBlock>
                 </p>
-                <b>2. Install the @umar-epacken/saloon-data package from the NPM and YARN</b>
+                <b>2. Install the @umar-epacken/salon-data package from the NPM and YARN</b>
                 <p className="margin-vert--md margin-horiz--md">
                   <CodeBlock language="bash">
-                    npm install @umar-epacken/saloon-data
+                    npm install @umar-epacken/salon-data
                   </CodeBlock>
                 </p>
 

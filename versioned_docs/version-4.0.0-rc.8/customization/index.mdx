@@ -4,7 +4,7 @@ sidebar_position: 0
 slug: /customizing
 ---
 
-Congrats! You've installed `@umar-epacken/saloon-data` and your immediate question
+Congrats! You've installed `@umar-epacken/salon-data` and your immediate question
 goes something like this:
 
 > So umm, how do can i get the user information through the redux
@@ -16,7 +16,7 @@ Great question! you can get the current user information through `useHUser()` ho
 you can get the current user context by utilizing `useHUser`
 
 ```jsx
-import { useHUser } from '@umar-epacken/saloon-data';
+import { useHUser } from "@umar-epacken/salon-data";
 
 const { loginInfo } = useHUser();
 
@@ -32,6 +32,7 @@ console.log(loginInfo); /** current user info **/
 **Usage:** Access application configuration.
 
 **Returns:**
+
 - `loading`: Application loading state.
 - `language`: Application language.
 - `themeMode`: Application theme mode (`light` | `dark`).
@@ -47,11 +48,13 @@ console.log(loginInfo); /** current user info **/
 **Usage:** Sign up/register user to the application.
 
 **Parameters:**
+
 - `username`: string
 - `email`: string
 - `password`: string
 
 **Returns:**
+
 - `userInfo`: Current registered user info.
 
 ## 3. useLogin
@@ -61,11 +64,13 @@ console.log(loginInfo); /** current user info **/
 **Usage:** Sign in/login user to the application.
 
 **Parameters:**
+
 - `identifier`: string
 - `password`: string
 - `provider`: string
 
 **Returns:**
+
 - `userInfo`: Current logged-in user info.
 
 ## 4. useOtp
@@ -75,10 +80,12 @@ console.log(loginInfo); /** current user info **/
 **Usage:** Phone number verification via OTP.
 
 **Parameters:**
+
 - `otpCode`: string
 - `otpReceiveType`: _ENUM_ EOtpReceive (`SMS` | `EMAIL`)
 
 **Returns:**
+
 - `OtpAPI`: Public method to get OTP.
 - `validateOtpAPI`: Public method to validate OTP.
 
@@ -89,9 +96,11 @@ console.log(loginInfo); /** current user info **/
 **Usage:** Validate the current application session by verifying JWT.
 
 **Parameters:**
+
 - `accessToken`: string
 
 **Returns:**
+
 - `validateSessionAPI()`: Public method to validate token and update in redux.
 
 ## 6. useForgotPassword
@@ -101,9 +110,11 @@ console.log(loginInfo); /** current user info **/
 **Usage:** Send reset password email to user.
 
 **Parameters:**
+
 - `email`: string
 
 **Returns:**
+
 - `forgotPasswordAPI()`: Public method to access API and get response.
 
 ## 7. useResetPassword
@@ -113,11 +124,13 @@ console.log(loginInfo); /** current user info **/
 **Usage:** Reset user password.
 
 **Parameters:**
+
 - `password`: string
 - `passwordConfirmation`: string
 - `code`: string
 
 **Returns:**
+
 - `resetPasswordAPI()`: Public method to access resetPassword API and get response.
 
 ## 8. useChangePassword
@@ -127,11 +140,13 @@ console.log(loginInfo); /** current user info **/
 **Usage:** Change current user password.
 
 **Parameters:**
+
 - `currentPassword`: string
 - `password`: string
 - `passwordConfirmation`: string
 
 **Returns:**
+
 - `changePasswordAPI()`: Public method to access changePassword API and get response.
 
 ## 9. useEmailConfirmation
@@ -141,12 +156,12 @@ console.log(loginInfo); /** current user info **/
 **Usage:** Confirm user email.
 
 **Parameters:**
+
 - `confirmation`: string
 
 **Returns:**
+
 - `emailConfirmationAPI()`: Public method to access emailConfirmation API and get response.
-
-
 
 Remember if you want to override the values set in the theme you can always use component props.
 
