@@ -1,70 +1,70 @@
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Salon App' /* title for your website */,
-  tagline: 'Book local beauty and wellness services',
-  url: 'https://reactnativeelements.com' /* your website url */,
-  baseUrl: '/' /* base url for your project */,
-  projectName: 'react-native-elements',
-  organizationName: 'react-native-elements',
+  title: "Salon App" /* title for your website */,
+  tagline: "Book local beauty and wellness services",
+  url: "https://reactnativeelements.com" /* your website url */,
+  baseUrl: "/" /* base url for your project */,
+  projectName: "react-native-elements",
+  organizationName: "react-native-elements",
   clientModules: [
-    require.resolve('./plugins/snackPlayerInitializer.js'),
-    require.resolve('./plugins/gtag.ts'),
+    require.resolve("./plugins/snackPlayerInitializer.js"),
+    require.resolve("./plugins/gtag.ts"),
   ],
   /* path to images for header/footer */
-  favicon: '/img/website/logo.png',
+  favicon: "/img/website/logo.png",
 
   // This copyright info is used in /core/Footer.js and blog rss/atom feeds.
-  scripts: [{ src: 'https://snack.expo.io/embed.js', defer: true }],
-  themes: ['@docusaurus/theme-live-codeblock'],
-  plugins: ['./plugins/react-native-elements-web.js'],
+  scripts: [{ src: "https://snack.expo.io/embed.js", defer: true }],
+  themes: ["@docusaurus/theme-live-codeblock"],
+  plugins: ["./plugins/react-native-elements-web.js"],
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       {
         gtag: {
-          trackingID: 'G-RW24X04H53',
+          trackingID: "G-RW24X04H53",
           anonymizeIP: true,
         },
         sitemap: {
-          changefreq: 'weekly',
+          changefreq: "weekly",
           priority: 0.5,
-          ignorePatterns: ['**/component_usage/**'],
+          ignorePatterns: ["**/component_usage/**"],
         },
         docs: {
-          exclude: ['**/component_usage/**'],
-          path: 'docs',
+          exclude: ["**/component_usage/**"],
+          path: "docs",
           versions: {
             current: {
-              label: 'Bleeding Edge 🚧',
+              label: "Bleeding Edge 🚧",
             },
           },
-          routeBasePath: 'docs',
-          sidebarPath: require.resolve('./sidebars.ts'),
-          remarkPlugins: [require('./plugins/remark-snackplayer')],
+          routeBasePath: "docs",
+          sidebarPath: require.resolve("./sidebars.ts"),
+          remarkPlugins: [require("./plugins/remark-snackplayer")],
           editUrl:
-            'https://github.com/react-native-elements/react-native-elements/edit/next/website/',
+            "https://github.com/react-native-elements/react-native-elements/edit/next/website/",
         },
         theme: {
-          customCss: require.resolve('./static/css/custom.css'),
+          customCss: require.resolve("./static/css/custom.css"),
         },
       },
     ],
   ],
   themeConfig: {
-    image: '/img/website/seo.png',
+    image: "/img/website/seo.png",
     liveCodeBlock: {
-      playgroundPosition: 'top',
+      playgroundPosition: "top",
     },
 
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: "dark",
       disableSwitch: false,
     },
     navbar: {
-      title: 'Saloon App',
+      title: "Saloon App",
       logo: {
-        alt: 'Saloon App Documentation',
-        src: '/img/website/logo.png',
+        alt: "Saloon App Documentation",
+        src: "/img/website/logo.png",
       },
       // hideOnScroll: true,
       // items: [
@@ -111,70 +111,70 @@ const config = {
       // ],
     },
     prism: {
-      theme: require('prism-react-renderer/themes/github'),
-      darkTheme: require('prism-react-renderer/themes/shadesOfPurple'),
-      defaultLanguage: 'typescript',
+      theme: require("prism-react-renderer/themes/github"),
+      darkTheme: require("prism-react-renderer/themes/shadesOfPurple"),
+      defaultLanguage: "typescript",
     },
     algolia: {
-      appId: 'G56RD58Q82',
-      apiKey: 'f461bfc8266f0f2d399e66d5b0775c63',
-      indexName: 'react_native_elements',
+      appId: "G56RD58Q82",
+      apiKey: "f461bfc8266f0f2d399e66d5b0775c63",
+      indexName: "saloon-docs_query_suggestions",
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       logo: {
-        src: 'img/logo.png',
+        src: "img/logo.png",
       },
       links: [
         {
-          title: 'Docs',
+          title: "Docs",
           items: [
             {
-              label: 'Getting Started',
-              to: 'docs/',
+              label: "Getting Started",
+              to: "docs/",
             },
             {
-              label: 'Components',
-              to: 'docs/overview',
+              label: "Components",
+              to: "docs/overview",
             },
             {
-              label: 'Contribution Guide',
-              to: 'docs/contributing',
+              label: "Contribution Guide",
+              to: "docs/contributing",
             },
           ],
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'Join discord server',
-              to: 'https://discord.com/invite/e9RBHjkKHa',
+              label: "Join discord server",
+              to: "https://discord.com/invite/e9RBHjkKHa",
             },
             {
-              label: 'Discord Server',
-              to: '/discord',
+              label: "Discord Server",
+              to: "/discord",
             },
 
             {
-              label: 'Support us on Open Collective',
-              to: 'https://opencollective.com/react-native-elements',
+              label: "Support us on Open Collective",
+              to: "https://opencollective.com/react-native-elements",
             },
           ],
         },
         {
-          title: 'More',
+          title: "More",
           items: [
             {
-              label: 'GitHub',
-              to: 'https://github.com/react-native-elements/react-native-elements',
+              label: "GitHub",
+              to: "https://github.com/react-native-elements/react-native-elements",
             },
             {
-              label: 'StackOverflow',
-              to: 'https://stackoverflow.com/questions/tagged/react-native-elements',
+              label: "StackOverflow",
+              to: "https://stackoverflow.com/questions/tagged/react-native-elements",
             },
             {
-              label: 'VS Code Extension',
-              to: 'https://marketplace.visualstudio.com/items?itemName=rne.snippets',
+              label: "VS Code Extension",
+              to: "https://marketplace.visualstudio.com/items?itemName=rne.snippets",
             },
           ],
         },
@@ -184,19 +184,19 @@ const config = {
   baseUrlIssueBanner: false,
   trailingSlash: false,
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
     localeConfigs: {
       en: {
-        label: 'English',
-        direction: 'ltr',
+        label: "English",
+        direction: "ltr",
       },
     },
   },
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
-  onDuplicateRoutes: 'warn',
-  staticDirectories: ['static'],
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
+  onDuplicateRoutes: "warn",
+  staticDirectories: ["static"],
 };
 
 module.exports = config;

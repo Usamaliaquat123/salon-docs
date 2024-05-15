@@ -1,0 +1,14 @@
+---
+title: useHOtp()
+sidebar_position: 2
+---
+
+```tsx
+const { verifyOtpAPI } = useHOtp();
+
+await verifyOtpAPI({
+  otp: data,
+  email: props.route.params.email,
+  userType: "customers" /** customers **/,
+});
+```

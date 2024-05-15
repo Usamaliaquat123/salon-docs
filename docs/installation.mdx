@@ -1,13 +1,13 @@
 ---
 id: installation
-title: ''
+title: ""
 sidebar_label: Installation
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import { SiExpo, SiReact } from 'react-icons/si';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import { SiExpo, SiReact } from "react-icons/si";
 
 ## Installation
 
@@ -100,7 +100,7 @@ If you see the `UNMET PEER DEPENDENCY` warning for **react-native-vector-icons**
 
 <img
   alt="React Native Vector Icons Unmet Peer Dependency"
-  src={useBaseUrl('img/peer-dep-error.png')}
+  src={useBaseUrl("img/peer-dep-error.png")}
 />
 
 :::
@@ -191,7 +191,7 @@ It is required to add the `SafeAreaProvider` to the outside of the app. The sugg
 the following:
 
 ```js
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 function App() {
   return <SafeAreaProvider>...</SafeAreaProvider>;
@@ -258,18 +258,18 @@ yarn add --dev @babel/plugin-proposal-class-properties customize-cra react-app-r
 Secondly, create a `config-overrides.js` file in the root of your project.
 
 ```js
-const path = require('path');
-const { override, addBabelPlugins, babelInclude } = require('customize-cra');
+const path = require("path");
+const { override, addBabelPlugins, babelInclude } = require("customize-cra");
 
 module.exports = override(
-  ...addBabelPlugins('@babel/plugin-proposal-class-properties'),
+  ...addBabelPlugins("@babel/plugin-proposal-class-properties"),
   babelInclude([
-    path.resolve(__dirname, 'node_modules/@rneui/base'),
-    path.resolve(__dirname, 'node_modules/@rneui/themed'),
-    path.resolve(__dirname, 'node_modules/react-native-vector-icons'),
-    path.resolve(__dirname, 'node_modules/react-native-ratings'),
-    path.resolve(__dirname, 'src'),
-  ])
+    path.resolve(__dirname, "node_modules/@rneui/base"),
+    path.resolve(__dirname, "node_modules/@rneui/themed"),
+    path.resolve(__dirname, "node_modules/react-native-vector-icons"),
+    path.resolve(__dirname, "node_modules/react-native-ratings"),
+    path.resolve(__dirname, "src"),
+  ]),
 );
 ```
 
@@ -297,12 +297,12 @@ At this point your app can start. However trying to use any components that use 
 <style type="text/css">{`
   @font-face {
     font-family: 'MaterialIcons';
-    src: url(${require('react-native-vector-icons/Fonts/MaterialIcons.ttf')}) format('truetype');
+    src: url(${require("react-native-vector-icons/Fonts/MaterialIcons.ttf")}) format('truetype');
   }
 
   @font-face {
     font-family: 'FontAwesome';
-    src: url(${require('react-native-vector-icons/Fonts/FontAwesome.ttf')}) format('truetype');
+    src: url(${require("react-native-vector-icons/Fonts/FontAwesome.ttf")}) format('truetype');
   }
 `}</style>
 ```
