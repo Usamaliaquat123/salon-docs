@@ -118,7 +118,7 @@ const config = {
     algolia: {
       appId: "G56RD58Q82",
       apiKey: "f461bfc8266f0f2d399e66d5b0775c63",
-      indexName: "saloon-docs_query_suggestions",
+      indexName: "saloon-docs",
     },
     footer: {
       style: "dark",
