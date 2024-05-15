@@ -1,0 +1,26 @@
+name: Algolia Scraper
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight
+  push:
+    branches:
+      - main
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v1
+
+      - name: Run scraper
+        run: |
+          docker run -it --env-file=.env -e "CONFIG=$(cat /path/to/config.json | jq -r tostring)" algolia/docsearch-scraper
+        env:
+          APPLICATION_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
