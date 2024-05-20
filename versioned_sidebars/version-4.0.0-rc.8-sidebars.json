@@ -28,8 +28,9 @@
       "type": "category",
      "label": "Mobile UI Components",
       "items": [
-           "repo/contributing"
+        "components/avatar"
       ]
+
     },
     {
       "type": "category",
