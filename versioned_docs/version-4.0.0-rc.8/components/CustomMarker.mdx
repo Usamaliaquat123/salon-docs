@@ -1,0 +1,41 @@
+---
+id: customMarker
+title: CustomMarker
+---
+
+This component is used for ...
+
+### Import
+
+```tsx
+import React from "react";
+import { IoLocationSharp } from "react-icons/io5";
+```
+
+### Props
+
+```tsx
+interface CustomMarkerProps {
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+}
+```
+
+### component
+
+```tsx
+const CustomMarker: React.FC<CustomMarkerProps> = ({ onClick }) => {
+  return (
+    <div onClick={onClick} className="cursor-pointer">
+      <IoLocationSharp className="text-[30px] hover:text-[50px] transition-[cubic-bezier(.14,.97,.98,-0.05)]" />
+    </div>
+  );
+};
+
+export default CustomMarker;
+```
+
+### Usage
+
+```tsx
+<CustomMarker onClick={} />
+```

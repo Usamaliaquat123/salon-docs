@@ -1,0 +1,77 @@
+---
+id: ratingStars
+title: RatingStars
+---
+
+This component is used for user rating
+
+### Import
+
+```tsx
+import React from "react";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+```
+
+### Props
+
+```tsx
+interface RatingProps {
+  rating: number;
+  reviewCount: number;
+}
+```
+
+### component
+
+```tsx
+const RatingStars: React.FC<RatingProps> = ({ rating, reviewCount }) => {
+  const maxRating = 5;
+
+  const renderStars = () => {
+    const stars = [];
+    const roundedRating = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+
+    for (let i = 0; i < roundedRating; i++) {
+      stars.push(<FaStar key={i} className="star filled text-md" />);
+    }
+
+    if (hasHalfStar) {
+      stars.push(
+        <FaStarHalfAlt
+          key={roundedRating}
+          className="star half-filled text-md"
+        />
+      );
+    }
+
+    const emptyStarsCount = maxRating - (stars.length + (hasHalfStar ? 1 : 0));
+    for (let i = 0; i < emptyStarsCount; i++) {
+      stars.push(
+        <FaStar
+          key={roundedRating + (hasHalfStar ? 1 : 0) + i}
+          className="star"
+        />
+      );
+    }
+
+    return stars;
+  };
+
+  return (
+    <div className="rating-stars flex gap-1 items-center">
+      <span className="font-semibold text-sm">{rating.toFixed(1)} </span>
+      <div className="stars flex gap-[1px]">{renderStars()}</div>
+      <span className="font-semibold text-sm">({reviewCount})</span>
+    </div>
+  );
+};
+
+export default RatingStars;
+```
+
+### Usage
+
+```tsx
+<RatingStars rating={} reviewCount={} />
+```

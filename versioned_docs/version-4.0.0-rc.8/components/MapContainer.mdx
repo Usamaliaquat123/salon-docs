@@ -1,0 +1,166 @@
+---
+id: mapContainer
+title: MapContainer
+---
+
+This component is used for map
+### Import
+
+```tsx
+"use client";
+import React, { useEffect, useMemo, useState } from "react";
+import Map, { Marker, Popup, ViewStateChangeEvent, useMap } from "react-map-gl";
+import { addQueryToParams } from "@/lib/utils";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import CustomMarker from "./CustomMarker";
+```
+
+### Props
+
+```tsx
+interface Props {
+  initialViewPort: {
+    latitude: number;
+    longitude: number;
+    zoom: number;
+  };
+  initialMarkers?: any[];
+  setCenterOnQueryParams?: boolean;
+  moveEndHandler?: (map: ViewStateChangeEvent | undefined) => void;
+}
+```
+
+### component
+
+```tsx
+const MapContainer: React.FC<Props> = ({
+  initialViewPort,
+  initialMarkers,
+  setCenterOnQueryParams = false,
+  moveEndHandler,
+}) => {
+  // search params in url
+  const searchParams = useSearchParams();
+
+  // full path name
+  const pathName = usePathname();
+
+  // router
+  const router = useRouter();
+
+  // this ref is for handle events of map like flyTo
+  const mapRef = useMap() as React.MutableRefObject<any>;
+
+  // initial view port that first time showed on map
+  const [viewPort] = useState<{
+    latitude: number;
+    longitude: number;
+    zoom: number;
+  }>(initialViewPort);
+
+  // markers on map that can be undefined
+  const [markers, setMarkers] = useState(initialMarkers);
+
+  // this state is for open popup of clicked marker
+  const [selectedMarker, setSelectedMarker] = useState<string | null>(null);
+
+  // when marker is clicked this function called to set selected marker for open related popup
+  const handleMarkerClick = (markerId: string) => {
+    setSelectedMarker(markerId === selectedMarker ? null : markerId);
+  };
+
+  // when moveEnd event happened in map this func sets current center of map on query params
+  const setMapCenterOnQueryParams = (map: ViewStateChangeEvent) => {
+    const center = map.viewState;
+
+    addQueryToParams(
+      "center",
+      `${center.longitude}__${center.latitude}`,
+      searchParams,
+      router,
+      pathName
+    );
+  };
+
+  const handleMoveEnd = (map: ViewStateChangeEvent) => {
+    moveEndHandler && moveEndHandler(map);
+    setCenterOnQueryParams && setMapCenterOnQueryParams(map);
+  };
+
+  // the markers should be cached for prevent many renders on events
+  const cachedMarkers = useMemo(() => {
+    return markers?.map((marker) => (
+      <Marker
+        key={marker.id}
+        latitude={marker.latitude}
+        longitude={marker.longitude}
+        anchor="bottom"
+      >
+        <CustomMarker
+          onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+            e.stopPropagation();
+            handleMarkerClick(marker.id);
+          }}
+        />
+        {selectedMarker === marker.id && (
+          <Popup
+            latitude={marker.latitude}
+            longitude={marker.longitude}
+            closeButton={false}
+            closeOnClick={false}
+            anchor="bottom"
+            offset={30}
+          >
+            <div>{marker.title}</div>
+          </Popup>
+        )}
+      </Marker>
+    ));
+  }, [selectedMarker, initialMarkers, markers]);
+
+  // when markers change in parent this useEffect changes the markers of map
+  useEffect(() => {
+    setMarkers(initialMarkers);
+  }, [initialMarkers]);
+
+  // when viewport changes on parent this useffect be called and set view on map with flyTo()
+  useEffect(() => {
+    mapRef.current &&
+      mapRef.current.flyTo({
+        center: [initialViewPort.longitude, initialViewPort.latitude],
+        zoom: initialViewPort.zoom,
+      });
+  }, [initialViewPort]);
+
+  return (
+    <>
+      <Map
+        mapboxAccessToken={
+          "pk.eyJ1IjoiZHJ0YWxlYiIsImEiOiJjbHZhb2llamswMDZmMnFwMXB0cmI5dWp6In0.Xf35KYRB06G_C0myX3GtDQ"
+        }
+        mapStyle="mapbox://styles/mapbox/streets-v9"
+        style={{
+          height: "100%",
+          width: "100%",
+        }}
+        initialViewState={viewPort}
+        onMoveEnd={handleMoveEnd}
+        onClick={() => {
+          setSelectedMarker(null);
+        }}
+        ref={mapRef}
+      >
+        {cachedMarkers}
+      </Map>
+    </>
+  );
+};
+
+export default MapContainer;
+```
+
+### Usage
+
+```tsx
+<MapContainer initialViewPort={} initialMarkers={} setCenterOnQueryParams moveEndHandler={} />
+```

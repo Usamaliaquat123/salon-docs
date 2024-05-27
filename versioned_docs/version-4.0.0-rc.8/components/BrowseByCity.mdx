@@ -1,0 +1,76 @@
+---
+id: browseByCity
+title: BrowseByCity
+---
+
+This component is used for ...
+
+### Import
+
+```tsx
+"use client";
+import React, { type FC } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { data as countryList } from "./data";
+import ShowCityList from "./showCityList";
+import { ListOfCountry } from "./types";
+import { cn } from "@/lib/utils";
+```
+
+### Props
+
+```tsx
+interface BrowseByCityProps {
+    data?: ListOfCountry;
+    className?: string;
+}
+```
+
+### component
+
+```tsx
+const BrowseByCity: FC<BrowseByCityProps> = ({
+    className,
+    data = countryList,
+}) => {
+    return (
+        <Tabs
+            defaultValue={Object.keys(data)[0]}
+            className={cn(
+                "w-full flex flex-col justify-start items-start ",
+                className
+            )}
+        >
+            <TabsList className="w-full flex flex-row justify-start gap-5 my-5 ">
+                {Object.keys(data)?.map((country: string) => (
+                    <TabsTrigger
+                        key={country}
+                        value={country}
+                        className="py-1 px-3 data-[state=active]:bg-black data-[state=active]:text-white rounded-3xl text-lg"
+                    >
+                        {country}
+                    </TabsTrigger>
+                ))}
+            </TabsList>
+            <TabsList className="relative w-full h-fit ">
+                {Object.keys(data)?.map((country: string) => (
+                    <TabsContent
+                        key={country}
+                        className="w-full"
+                        value={country}
+                    >
+                        <ShowCityList data={data[country]} />
+                    </TabsContent>
+                ))}
+            </TabsList>
+        </Tabs>
+    );
+};
+export default BrowseByCity;
+```
+
+### Usage
+
+```tsx
+<BrowseByCity data={} className=""/>
+```

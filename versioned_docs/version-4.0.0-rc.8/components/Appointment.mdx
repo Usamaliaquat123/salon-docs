@@ -1,0 +1,201 @@
+---
+id: appointment
+title: Appointment
+---
+
+This component is used for show appointment
+
+### Import
+
+```tsx
+"use client";
+import Link from "next/link";
+import React from "react";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { useQuery } from "@tanstack/react-query";
+import { getByID } from "@/queries/appointments";
+import { useParams } from "next/navigation";
+import useHashUrl from "@/hooks/useHashUrl";
+import ModalAddToCalendar from "./modals/ModalAddToCalendar";
+import ModalManage from "./modals/ModalManage";
+```
+
+### Props
+
+```tsx
+const { id } = useParams();
+```
+
+### component
+
+```tsx
+export default function Appointment() {
+    const { id } = useParams();
+
+    const hashName = useHashUrl();
+
+    // queries
+    const { data } = useQuery({
+        queryKey: ["appointments", id],
+        queryFn: () => getByID((id ?? "001") as string),
+    });
+
+    return (
+        <div className="flex flex-col w-full relative">
+            <Link
+                href={"/appointments"}
+                className="lg:hidden absolute top-5 start-5 z-20 flex items-center justify-center rounded-full aspect-square w-10 bg-white"
+            >
+                <FaArrowLeftLong className="text-xl" />
+            </Link>
+            <div
+                className="h-72 w-full bg-center bg-no-repeat relative bg-cover"
+                style={{
+                    backgroundImage: `url(${data?.image})`,
+                }}
+            >
+                <div className="absolute inset-0 bg-black/40" />
+                <p className="text-white font-bold text-2xl absolute bottom-5 start-5">
+                    {data?.name}
+                </p>
+            </div>
+            <div className="p-8 flex flex-col gap-5">
+                <div
+                    className={`rounded-full flex items-center justify-center gap-2 w-36 h-9 text-white ${
+                        data?.status == "scheduled"
+                            ? "bg-sky-500"
+                            : "bg-red-500"
+                    }`}
+                >
+                    {data?.status}
+                </div>
+
+                <div>
+                    <p className="text-2xl font-semibold">{data?.date}</p>
+                    <p className="text-sm text-gray-500">
+                        {data?.services.totalDuration} duration
+                    </p>
+                </div>
+
+                <div>
+                    {data?.status == "scheduled" ? (
+                        <>
+                            <Link
+                                href="#modal-add-to-calendar"
+                                className="flex gap-4 items-center px-2 hover:bg-gray-200 rounded-lg"
+                            >
+                                <div className="flex aspect-square w-10 bg-gray-100 rounded-full"></div>
+                                <div className="flex flex-col border-b flex-1 py-4">
+                                    <p>Add to calendar</p>
+                                    <p className="text-gray-400 text-sm">
+                                        Set yourself a reminder
+                                    </p>
+                                </div>
+                            </Link>
+                            <Link
+                                href=""
+                                className="flex gap-4 items-center px-2 hover:bg-gray-200 rounded-lg"
+                            >
+                                <div className="flex aspect-square w-10 bg-gray-100 rounded-full"></div>
+                                <div className="flex flex-col border-b flex-1 py-4">
+                                    <p>Getting there</p>
+                                    <p className="text-gray-400 text-sm capitalize">
+                                        {data?.saloonAddress}
+                                    </p>
+                                </div>
+                            </Link>
+                            <Link
+                                href="#modal-manage"
+                                className="flex gap-4 items-center px-2 hover:bg-gray-200 rounded-lg"
+                            >
+                                <div className="flex aspect-square w-10 bg-gray-100 rounded-full"></div>
+                                <div className="flex flex-col border-b flex-1 py-4">
+                                    <p>Manage appointment</p>
+                                    <p className="text-gray-400 text-sm">
+                                        Reschedule or cancel your appointment
+                                    </p>
+                                </div>
+                            </Link>
+                        </>
+                    ) : (
+                        <Link
+                            href=""
+                            className="flex gap-4 items-center px-2 hover:bg-gray-200 rounded-lg"
+                        >
+                            <div className="flex aspect-square w-10 bg-gray-100 rounded-full"></div>
+                            <div className="flex flex-col border-b flex-1 py-4">
+                                <p>Book again</p>
+                                <p className="text-gray-400 text-sm">
+                                    Book your next appointment
+                                </p>
+                            </div>
+                        </Link>
+                    )}
+
+                    <Link
+                        href=""
+                        className="flex gap-4 items-center px-2 hover:bg-gray-200 rounded-lg"
+                    >
+                        <div className="flex aspect-square w-10 bg-gray-100 rounded-full"></div>
+                        <div className="flex flex-col flex-1 py-4">
+                            <p>Venue details</p>
+                            <p className="text-gray-400 text-sm">
+                                Mike and Kals
+                            </p>
+                        </div>
+                    </Link>
+                </div>
+
+                <div>
+                    <p className="text-xl capitalize font-medium">Overview</p>
+                    <div className="flex flex-col gap-1 py-4 border-b">
+                        <div className="flex justify-between">
+                            <div>
+                                <p>Hair Extension</p>
+                                <p className="text-sm text-gray-500">
+                                    1 hour with Rabah
+                                </p>
+                            </div>
+                            <p>from AED 1,000</p>
+                        </div>
+
+                        <div className="flex justify-between">
+                            <div>
+                                <p>Hair Extension</p>
+                                <p className="text-sm text-gray-500">
+                                    1 hour with Rabah
+                                </p>
+                            </div>
+                            <p>AED 80</p>
+                        </div>
+                    </div>
+                    <div className="flex justify-between mt-4 text-sm font-bold">
+                        <p>Total</p>
+                        <p>from AED 1,080</p>
+                    </div>
+                </div>
+
+                <div className="flex flex-col gap-5">
+                    <p>Cancellation policy</p>
+                    <p>
+                        Please avoid cancelling within{" "}
+                        <span className="font-bold">3 hours</span> of your
+                        appointment time
+                    </p>
+                </div>
+
+                <p className="text-gray-500 text-sm">Booking ref: 38B6DD72</p>
+            </div>
+
+            {hashName == "#modal-add-to-calendar" && <ModalAddToCalendar />}
+            {hashName == "#modal-manage" && <ModalManage />}
+        </div>
+    );
+}
+```
+
+### Usage
+
+```tsx
+<Appointment />
+```

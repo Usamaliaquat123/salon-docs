@@ -1,0 +1,59 @@
+---
+id: showCityList
+title: ShowCityList
+---
+
+This component is used for ...
+
+### Import
+
+```tsx
+import React from "react";
+import type { FC } from "react";
+import { Country, Service } from "./types";
+import { cn } from "@/lib/utils";
+```
+
+### Props
+
+```tsx
+interface ShowCityListProps {
+  data: Country;
+  className?: string;
+}
+```
+
+### component
+
+```tsx
+const ShowCityList: FC<ShowCityListProps> = ({ data, className }) => {
+  if (Object.keys(data).length === 0) {
+    return <p>No data available</p>; // Handle empty data case
+  }
+
+  return (
+    <ul className={cn("relative w-full flex flex-row gap-32", className)}>
+      {Object.entries(data).map(([city, services]) => (
+        <li key={city}>
+          <ul className="relative w-full flex flex-col text-sm gap-4 text-black">
+            <li className="font-bold cursor-pointer">{city}</li>
+            {services.map((service: Service) => (
+              <li key={service.name} className="cursor-pointer">
+                {service.name}
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+export default ShowCityList;
+```
+
+### Usage
+
+```tsx
+<ShowCityList data={} className=""/>
+```

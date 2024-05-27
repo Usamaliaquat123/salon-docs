@@ -1,0 +1,66 @@
+---
+id: upcomingList
+title: UpcomingList
+---
+
+This component is used for list of appointments user
+
+### Import
+
+```tsx
+"use client";
+import Link from "next/link";
+import React from "react";
+import { UpcomingType } from "../types";
+```
+
+### Props
+
+```tsx
+export type Props = {
+    upcomingList: UpcomingType[] | undefined;
+}
+```
+
+### component
+
+```tsx
+export default function UpcomingList(props: Props) {
+    const { upcomingList } = props;
+    return (
+        <ul className="flex flex-col">
+            {upcomingList?.map(
+                ({ id, services, date, name, image }: UpcomingType) => (
+                    <Link
+                        href={`/appointments/${id}`}
+                        className="flex gap-2 p-2 items-center hover:bg-gray-200 rounded-lg duration-300"
+                        key={`upcomingCard-${id}`}
+                    >
+                        <div
+                            className="w-16 aspect-square relative border rounded-lg overflow-hidden bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: `url(${image})`,
+                                backgroundSize: "auto 120%",
+                            }}
+                        />
+                        <div className="flex flex-col text-sm">
+                            <p className="font-medium">{name}</p>
+                            <p>{date}</p>
+                            <p className="flex text-gray-500">
+                                <span>{services.totalPrice}</span>
+                                <span>{services.item.length} items</span>
+                            </p>
+                        </div>
+                    </Link>
+                )
+            )}
+        </ul>
+    );
+}
+```
+
+### Usage
+
+```tsx
+<UpcomingList upcomingList={} />
+```

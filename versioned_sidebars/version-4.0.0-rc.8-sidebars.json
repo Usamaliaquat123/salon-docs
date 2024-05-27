@@ -28,7 +28,25 @@
       "type": "category",
      "label": "Mobile UI Components",
       "items": [
-        "components/avatar"
+        "components/avatar",
+        "components/appointment",
+        "components/browseByCity",
+        "components/drawerDialog",
+        "components/loader",
+        "components/customMarker",
+        "components/modalManage",
+        "components/modalAddToCalendar",
+        "components/navigationAppointments",
+        "components/noAppointment",
+        "components/otherSignin",
+        "components/rating",
+        "components/ratingStars",
+        "components/reviewsCarousel",
+        "components/saloonCarousel",
+        "components/shadcn-ui-directory",
+        "components/showCityList",
+        "components/textInput",
+        "components/upcomingList"
       ]
 
     },

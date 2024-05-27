@@ -1,0 +1,59 @@
+---
+id: otherSignin
+title: OtherSignin
+---
+
+This component is used for `Sign in/up` with `Google/Facebook/Apple`
+
+### Import
+
+```tsx
+import { signIn } from "next-auth/react";
+import { FaFacebook, FaApple } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import React from "react";
+```
+
+### Props
+
+```tsx
+
+```
+
+### component
+
+```tsx
+export default function OtherSignin() {
+    return (
+        <>
+            <div className="border-y border-border-primary rounded-sm mx-auto max-w-sm w-full my-10 relative">
+                <span className="px-5 bg-white absolute -translate-y-1/2 -translate-x-1/2 start-1/2 top-1/2 text-content-body-2 text-sm">
+                    Or sign in with
+                </span>
+            </div>
+            <div className="w-full justify-evenly flex items-center">
+                {["facebook", "google", "apple"].map((item) => (
+                    <button
+                        type="button"
+                        key={item}
+                        className="aspect-square w-12 text-[32px] border rounded-full flex items-center justify-center"
+                        onClick={() => signIn(item, { callbackUrl: "/" })}
+                    >
+                        {item == "facebook" && (
+                            <FaFacebook className="text-[#0866FF]" />
+                        )}
+                        {item == "google" && <FcGoogle />}
+                        {item == "apple" && <FaApple />}
+                    </button>
+                ))}
+            </div>
+        </>
+    );
+}
+```
+
+### Usage
+
+```tsx
+<OtherSignin />
+```

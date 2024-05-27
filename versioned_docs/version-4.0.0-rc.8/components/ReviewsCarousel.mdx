@@ -1,0 +1,105 @@
+---
+id: reviewsCarousel
+title: ReviewsCarousel
+---
+
+This component is used for Reviews
+
+### Import
+
+```tsx
+"use client";
+import React from "react";
+import { cn } from "@/lib/utils";
+import { ReactNode, type FC } from "react";
+import Rating from "../rating";
+import { Review } from "../types/review";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Card, CardContent } from "../ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
+```
+
+### Props
+
+```tsx
+interface ReviewsCarouselProps {
+  title: ReactNode;
+  className?: string;
+  data?: Review[];
+}
+```
+
+### component
+
+```tsx
+const ReviewsCarousel: FC<ReviewsCarouselProps> = ({
+  title,
+  data,
+  className,
+}) => {
+  if (data?.length === 0) return null;
+  return (
+    <div className={cn(className)}>
+      <Carousel
+        opts={{
+          align: "start",
+        }}
+        className="w-[85%] md:w-full h-[500px]  m-auto flex flex-col gap-3"
+      >
+        <span className="font-bold text-2xl">{title} </span>
+        <CarouselContent className="gap-3">
+          {data?.map((review: Review) => (
+            <CarouselItem
+              key={review?.id}
+              className="w-[230px] h-[430px]  p-0  "
+            >
+              <Card>
+                <CardContent className="flex flex-col bg-white w-[230px] h-[430px] justify-between rounded-xl overflow-hidden bg-secondary aspect-square items-start gap-3 p-4 border-0 ">
+                  <section className="flex flex-col p-3 gap-1">
+                    <Rating value={review.rating} className="text-xl" />
+                    <span className="text-2xl font-semibold">
+                      Book appointments online directly
+                    </span>
+
+                    <span className="text-black/50 text-sm">
+                      Love to be able to book online instead of having to ring
+                      salons several times. Fresha is a game changer — top app.
+                    </span>
+                  </section>
+                  <section className="flex flex-row gap-2">
+                    <Avatar className="w-12 h-12">
+                      <AvatarImage src="/tsts" />
+                      <AvatarFallback className="w-12 h-12 flex flex-row bg-slate-400/30  ">
+                        TS
+                      </AvatarFallback>
+                    </Avatar>
+                    <span className="flex flex-col ">
+                      Josie
+                      <span className="text-black/40">Chicago,USA</span>
+                    </span>
+                  </section>
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
+  );
+};
+export default ReviewsCarousel;
+```
+
+### Usage
+
+```tsx
+<ReviewsCarousel title={} className="" data={} />
+```

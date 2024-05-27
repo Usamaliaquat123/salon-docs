@@ -1,0 +1,105 @@
+---
+id: drawerDialog
+title: DrawerDialog
+---
+
+This component is used for ...
+
+### Import
+
+```tsx
+"use client";
+import * as React from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { useMediaQuery } from "usehooks-ts";
+```
+
+### Props
+
+```tsx
+interface Props {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  trigger?: React.ReactNode;
+  title?: string;
+  description?: string;
+  children: React.ReactNode;
+  onClose?: () => void;
+  DialogClassName?: string;
+}
+```
+
+### component
+
+```tsx
+export const DrawerDialog: React.FC<Props> = (props) => {
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+
+  if (isDesktop) {
+    return (
+      <Dialog
+        open={props.open}
+        onOpenChange={(open) => {
+          props.setOpen(open);
+          props.onClose && props.onClose();
+        }}
+      >
+        <DialogTrigger asChild>{props.trigger}</DialogTrigger>
+        <DialogContent className={props.DialogClassName}>
+          <DialogHeader>
+            <DialogTitle>{props.title ? props.title : ""}</DialogTitle>
+            <DialogDescription>{props.description}</DialogDescription>
+          </DialogHeader>
+          {props.children}
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  return (
+    <Drawer
+      open={props.open}
+      onOpenChange={props.setOpen}
+      onClose={props.onClose}
+    >
+      <DrawerTrigger asChild>{props.trigger}</DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader className="text-left">
+          <DrawerTitle>{props.title ? props.title : ""}</DrawerTitle>
+          <DrawerDescription>{props.description}</DrawerDescription>
+        </DrawerHeader>
+        {props.children}
+        <DrawerFooter className="pt-2">
+          <DrawerClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  );
+};
+```
+
+### Usage
+
+```tsx
+<DrawerDialog title="" description="" DialogClassName="" open setOpen={} onClose={} trigger={} children={}/>
+```

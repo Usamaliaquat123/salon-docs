@@ -1,0 +1,93 @@
+---
+id: navigationAppointments
+title: NavigationAppointments
+---
+
+This component is used for ...
+
+### Import
+
+```tsx
+"use client";
+import React, { useEffect, useState } from "react";
+import NoAppointment from "../NoAppointment";
+import UpcomingList from "./UpcomingList";
+import { useParams } from "next/navigation";
+import { UpcomingType } from "../types";
+import { useQuery } from "@tanstack/react-query";
+import { getAll } from "@/queries/appointments";
+```
+
+### Props
+
+```tsx
+  const { id } = useParams();
+```
+
+### component
+
+```tsx
+export default function NavigationAppointments() {
+    const { id } = useParams();
+
+    // variables
+    const [confirms, setConfirms] = useState<UpcomingType[] | undefined>();
+    const [cancels, setCancels] = useState<UpcomingType[] | undefined>();
+
+    // queries
+    const { data } = useQuery({
+        queryKey: ["appointments"],
+        queryFn: getAll,
+    });
+
+    // useEffects
+    useEffect(() => {
+        setConfirms(
+            data?.filter((v: UpcomingType) => v.status === "scheduled")
+        );
+        setCancels(data?.filter((v: UpcomingType) => v.status === "completed"));
+    }, [data]);
+
+    return (
+        <div
+            className={`w-full lg:w-96 h-screen relative z-0 ${
+                id ? "hidden lg:block" : ""
+            }`}
+        >
+            <div className="lg:fixed top-0 start-auto lg:h-screen lg:w-96 px-5 flex flex-col gap-5 py-10 lg:border-e overflow-y-auto">
+                <h2 className="capitalize text-lg font-semibold">
+                    appointments
+                </h2>
+
+                <div className="flex flex-col gap-4">
+                    <p className="capitalize">upcoming</p>
+                    {confirms?.length !== 0 ? (
+                        <UpcomingList upcomingList={confirms} />
+                    ) : (
+                        <NoAppointment />
+                    )}
+                </div>
+
+                {cancels?.length !== 0 && (
+                    <div className="flex flex-col gap-4">
+                        <p className="capitalize flex gap-2 items-center">
+                            <span>post</span>
+                            <span className="text-xs bg-gray-300 text-gray-500 rounded-full flex items-center justify-center w-5 aspect-square">
+                                {cancels?.length}
+                            </span>
+                        </p>
+                        <UpcomingList upcomingList={cancels} />
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+
+```
+
+### Usage
+
+```tsx
+<NavigationAppointments />
+```

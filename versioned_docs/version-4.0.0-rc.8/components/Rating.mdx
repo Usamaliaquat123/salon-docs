@@ -1,0 +1,54 @@
+---
+id: rating
+title: Rating
+---
+
+This component is used for ...
+
+### Import
+
+```tsx
+import { cn } from "@/lib/utils";
+import React from "react";
+import { IoIosStar, IoIosStarOutline } from "react-icons/io";
+```
+
+### Props
+
+```tsx
+type RatingProps = {
+  value?: number;
+  className?: string;
+}
+```
+
+### component
+
+```tsx
+export default function Rating(props: RatingProps) {
+  const { value, className } = props;
+
+  const stars = Array.from({ length: 5 }, (_, i) => i);
+
+  return (
+    <div className={cn("flex flex-row items-center gap-1", className)} data-testid="rating-range">
+      {stars.map((_, index) =>
+        !value ? (
+          <IoIosStarOutline key={index} data-icon="ios-star-outline" />
+        ) : index < Math.floor(value) ? (
+          <IoIosStar key={index} className="text-meta-5" data-icon="ios-star" />
+        ) : (
+          <IoIosStarOutline key={index} data-icon="ios-star-outline" />
+        )
+      )}
+    </div>
+  );
+}
+```
+
+### Usage
+
+```tsx
+<Rating value={} className="" />
+
+```
