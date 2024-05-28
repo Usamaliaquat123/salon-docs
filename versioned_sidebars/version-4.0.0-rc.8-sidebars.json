@@ -26,7 +26,7 @@
     {
       "collapsed": false,
       "type": "category",
-     "label": "Mobile UI Components",
+     "label": "Web ui components",
       "items": [
         "components/avatar",
         "components/appointment",
@@ -53,7 +53,7 @@
     {
       "type": "category",
       "collapsed": false,
-      "label": "Web ui components",
+      "label": "Mobile UI Components",
       "items": [
         "repo/contributing"
       ]
