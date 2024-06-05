@@ -23,6 +23,21 @@ This is served as a private npm package.
 
 3. **Install Dependencies:** Execute `yarn` to install the dependencies.
 
+4. **.env file** make sure your env file should be proper defined.
+
+
+## ```tsx env ``` Sample
+
+```tsx 
+IS_WEB= //BOOLEAN | string
+BASE_URL= //API_ENDPOINT | string
+API_ENVIRONMENT= //enviroment  | JSON | REST -> string
+NEXT_PUBLIC_IS_WEB = // if is using NEXT enviroment
+VITE_IS_WEB = // if is using VITE enviroment 
+
+```
+
+
 ## Error Handling
 
 Includes try-catch blocks within each API function in a hook to handle errors effectively.
