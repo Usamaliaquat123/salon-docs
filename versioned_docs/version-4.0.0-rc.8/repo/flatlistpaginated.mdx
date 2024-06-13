@@ -1,0 +1,62 @@
+---
+id: flatlistpaginated
+title: FlatlistPaginated
+slug: /flatlistpaginated
+---
+
+A Salon Component that render a paginated `Flatlist` as a `FlatlistPaginated`
+
+
+```tsx
+import { FlatlistPaginated} from "@mobileComponent/index";
+
+  <FlatlistPaginated
+    data={[]}
+    horizontal
+    renderItem={(data) => (
+      
+    )}
+    requestAction={(pageNo: Number,reset: boolean, ...payload) => {
+        
+     }}
+  />
+```
+
+
+## API 
+
+<div class='table-responsive'>
+
+| Name             | Type                                           | Default                                           | Description                                               |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
+| `listStyle`      | any                 |  Style of the list view                                        | Listview styles                                                 |                                                  
+| `emptyString`      | View Props from `react-native`                 |  ViewProps                                        | ViewProps                                                 |                                                  
+| `data`      | Array                 |  source of the Array lists                                        | Provide data to render the list                                                 |                                                  
+| `forwardedRef`      | React.Ref                 |  forwarded Refeerence of the Flatlist                                        | Forwarded reference for the flatlist                                                  |                                                  
+| `isPullToRefresh`      | Boolean                 | prop is for the `<RefreshControl />`                                      | enable or disable the pull to refresh functionality                                                 |                                                  
+| `contentContainerStyle`      | View Style from `react-native`                 |  Styles of the Content                                       | Content container styles object                                                 |                                                  
+| `showScrollIndicator`      |  Boolean                 |  to show indicator of scroll                                        | show indicator of scrolling behaviour                                                 |                                                  
+| `themeCode`      |                  |                                          |                                                  |                                                  
+| `renderItem`      | JSX.element                 |  Render items of the Flatlist                                        | `Required` to render the flatlist component                                                 |                                                  
+| `requestAction`      | Function                 |  returns `{pageNo: Number,reset: boolean,startAfterDoc : Array, ...payload}`                                        | on scroll end reached this function will trigger to get more data                                                  |                                                  
+| `payload`      | payload returns from the request Action                 |  `requestAction` returns payload                                         |                                                  |                                                  
+| `emptyView`      | JSX.element                |  rendered when the data is empty                                        | `EmptyView`                                                 |                                                  
+| `alignCenter`      | boolean                 |  center all the lists                                        | center the lists                                                  |                                                  
+| `ItemSeparatorComponent`      | JSX.element                 |  render divier View                                         |   Aftar each item this will be rendered                                              |                                                  
+| `alwaysRefresh`      |  boolean                 |  when the screen is render this refresh                                        |   when the screen is render this refresh the item                                               |                                                  
+| `keyExtractor`      |  Function                |  List to use the ids for the react keys                                        | List to use the ids for the react keys instead of the default key property.                                                 |                                                  
+| `listHeaderComponent`      | JSX.element                 |  Rendered at the top of all the items                                        |  Rendered at the top of all the items like an header                                                 |                                                  
+| `LoadingComponent`      | JSX.element                 |  View of the loading in Flatlist                                        | View of the loading in Flatlist                                                  |                                                  
+| `ListHeaderComponentStyle`      | View Style                  |  Styling for internal View                                        | Styling for internal View for ListHeaderComponent.                                                 |                                                  
+| `useBottomSheetFlatList`      | Boolean                 | false                                         | `BottomSheetFlatlist` | `FlatList`                                                 |                                                  
+| `horizontal`      | boolean                 |  Scrolling directions                                        | horizontal scrolling direction                                                 |                                                  
+| `numColumns`      | number                 |  Number of columns to be rendered                                        | Number of columns to be rendered in a row                                                  |                                                  
+| `listFooterComponent`      | JSX.element                 |  Rendered at the bottom                                       | Rendered at the bottom of all the items                                                 |                                                  
+| `listFooterComponentStyle`      | View Style                 |  Styling for internal View                                        | Styling for internal View `ListFooterComponent`                                                 |                                                  
+| `pageSize`      | number                 |  Page Size of the flatlist                                         | Page Size of the flatlist each render                                                 |                                                  
+| `showRefreshControl`      | View Props from `react-native`                 |  ViewProps                                        | ViewProps                                                 |                                                  
+| `bounces`      | boolean                 |  `bounces`  on reched end                                        | `bounces` on reched end                                                 |                                                  
+| `onEndReachedThreshold`      | number                 |  `onEndReachedThreshold`threshold                                      |  `onEndReachedThreshold`threshold                                                   |                                                  
+| `onScroll`      | Function                 |  `onScroll` trigger when scrolling happen                                        |  `onScroll` trigger when scrolling                                                 |                                                  
+
+</div>

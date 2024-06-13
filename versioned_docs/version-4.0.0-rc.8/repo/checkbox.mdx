@@ -1,0 +1,32 @@
+---
+id: checkbox
+title: CheckBox
+slug: /checkbox
+---
+
+Checkbox Element
+
+Checkbox element
+
+```tsx
+import { TextProp } from "react-native";
+import { CustomText } from "@mobileElements/index";
+
+<Checkbox onCheck={(e) => {/** e => boolean **/}}
+          check={/** Booleam **/} 
+          label={/**lable **/}
+ />
+```
+
+
+## API 
+
+<div class='table-responsive'>
+
+| Name             | Type                                            | Default                                           | Description                                               |
+| ---------------- | ----------------------------------------------  | ------------------------------------------------- | --------------------------------------------------------- |
+| `onCheck`        | Function                                        | Function                                          | Function that return the value of the checkbox            |                
+| `check`          | Boolean                                         | false                                             |  boolean value                                            |                                                  
+| `label`          | String                                          | `strig`                                           | label of the checkbox                                     |                                                   
+
+</div>

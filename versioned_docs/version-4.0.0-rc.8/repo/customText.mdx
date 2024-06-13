@@ -1,0 +1,27 @@
+---
+id: customtext
+title: CustomText
+slug: /customtext
+---
+
+A Salon Element for displaying text.
+
+CustomText supports nesting, styling, and touch handling each and everything from the TextProp of react-native Text component
+
+```tsx
+import { TextProp } from "react-native";
+import { CustomText } from "@mobileElements/index";
+
+<CustomText {...TextProp}> /** Text **/ </CustomText>;
+```
+
+
+## API 
+
+<div class='table-responsive'>
+
+| Name             | Type                                           | Default                                           | Description                                               |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
+| `TextProp`      | React Text Props                                | `Props of Text` | Text Properties of the Text element                                   |                                                   | Text value to be displayed by badge, defaults to empty.   |
+
+</div>

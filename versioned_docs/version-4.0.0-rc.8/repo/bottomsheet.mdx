@@ -1,0 +1,37 @@
+---
+id: bottomsheet
+title: BottomSheet
+slug: /bottomsheet
+---
+
+Bottom Sheet Element
+
+Bottom sheet example 
+
+```tsx
+import { BottomSheet} from "@mobileElements/index";
+
+ <BottomSheet
+        childRef={bottomNearbySaloonsSheetRef}
+        snapPoints={["40", "70%", "80%", "90", "100"]}
+        contentContainerStyles={{/** styles of the container **/}}
+        renderContent={() => (
+          /** Bottomsheet renderer content **/
+        )}
+  />
+```
+
+
+## API 
+
+<div class='table-responsive'>
+
+| Name             | Type                                           | Default                                           | Description                                               |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
+| `containerStyles`|  View Styles                                   | Styles of the container                           | Styles of the View                                   |                                                   | Text value to be displayed by badge, defaults to empty.   |
+| `contentContainerStyles`|  View Styles                                   | Styles of the container                           | Styles of the View                                   |                                                   | Text value to be displayed by badge, defaults to empty.   |
+| `renderContent`|  JSX.element                                   | Renderer View                           | Renderer View                                   |                                                   | Text value to be displayed by badge, defaults to empty.   |
+| `snapPoints`| ["25%", "50%"]                                   |  Snap Points of the Sheet                           | Renderer View                                   |                                                   | Text value to be displayed by badge, defaults to empty.   |
+| `childRef`| React.Ref                                   |  Reference of the child                           | Reference                                  |                                                   | Text value to be displayed by badge, defaults to empty.   |
+
+</div>

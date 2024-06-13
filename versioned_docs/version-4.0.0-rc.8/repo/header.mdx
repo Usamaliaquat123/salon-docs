@@ -1,0 +1,41 @@
+---
+id: header
+title: Header
+slug: /header
+---
+
+A Salon Component that display `<Header />`
+
+
+```tsx
+import { Header } from "@mobileComponent/index";
+import { THeaderProp } from "@mobileTypes/interfaces";
+/**
+ interface THeaderProp =  {
+  onChangeSearch?: any;
+  search?: string;
+  type: "normal" | "backandsearch" |"full" |"backlocationsearch" |"filter" |"menuTitle" |"backsearchcart" |"backtitlecart" |"title";
+  title?: string;
+  onReset?: () => void;
+  titleStyle?: StyleProp<Text>;
+}
+**/
+
+<Header {...THeaderProp}  />
+```
+
+
+## API 
+
+<div class='table-responsive'>
+
+| Name             | Type                                           | Default                                           | Description                                               |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
+| `onChangeSearch`         |  Function                              |  Function that return search text                           | Function that return search text on each keyword                       |                                                  
+| `search`        | Boolean                                          | false                                              | is Search is avilable                      |                                                   
+| `type`        |  "normal , "backandsearch" , "full", "backlocationsearch", "filter", "menuTitle", "backsearchcart", "backtitlecart", "title"                       | `normal`                                 | Screen type                        |                                                  
+| `title`            | Text                                           | `text` title                                        | Title of the screen                                   |                                                   
+| `onReset`          | Function                                        | `Function` |  function reset input                                   |                                                   
+| `titleStyle`          | Text Style                                       | `Style Text` | Text Style properties of the Header element                                   |                                                   
+
+</div>

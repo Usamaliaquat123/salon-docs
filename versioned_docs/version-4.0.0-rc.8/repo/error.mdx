@@ -1,0 +1,28 @@
+---
+id: error
+title: Error
+slug: /error
+---
+
+A Salon Element for displaying error.
+
+Error displays the error message for the inputs validations 
+```tsx
+import { TextProp } from "react-native";
+import { Error } from "@mobileElements/index";
+
+<Error style={ /** Style Object**/} 
+       message={"/** Message of the error **/"} >
+        /** Text **/ 
+</Error>;
+```
+## API 
+
+<div class='table-responsive'>
+
+| Name             | Type                                           | Default                                           | Description                                               |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
+| `style`          | View Style Object                              | `View` Style prop                                 | Style props of the react native view props                |                                                   | Text value to be displayed by badge, defaults to empty.   |
+| `message`          | Message of the Error                         | Message -> : string -> email is required          | String                |                                                   | Text value to be displayed by badge, defaults to empty.   |
+
+</div>

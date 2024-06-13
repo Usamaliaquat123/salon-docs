@@ -1,0 +1,70 @@
+---
+id: toast
+title: toastConfig
+slug: /toast
+---
+
+Configuration of the toast message 
+
+Toast Message renderer either its an error or warnings 
+
+### Configuration 
+
+```tsx
+/** Importing Toast component */
+import Toast from 'react-native-toast-message';
+import { ToastConfigParams } from "react-native-toast-message";
+/** import toastConfig */
+import {  toastConfig } from '@mobileElements/index';
+
+/** Configuration of the Toast */
+<Toast {...ToastConfigParams} config={toastConfig} />
+```
+
+## API 
+
+<div class='table-responsive'>
+
+| Name             | Type                                           | Default                                           | Description                                               |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
+| `ToastConfigParams` |  Params of the ToastConfig                  | `ToastConfigParams`                               | view api documentation if the toast                |                                                   | Text value to be displayed by badge, defaults to empty.   |
+</div>
+
+### Example
+
+```tsx
+/** Importing Toast component */
+import Toast from 'react-native-toast-message';
+
+/** Toast display */
+Toast.show({
+        type: 'customToast',
+        text: "Message displayed"
+      });
+```
+
+## API 
+
+<div class='table-responsive'>
+
+
+
+| option           | description                                                                                                                                                                                     | type              | default value |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------- |
+| `type`           | Toast type. Default available values: `success`, `error`, `info`.             | `string`          | `success`     |
+| `text1`          | First line of text                                                                                                                                                                              | `string`          |               |
+| `text2`          | Second line of text                                                                                                                                                                             | `string`          |               |
+| `position`       | Toast position                                                                                                                                                                                  | `top` or `bottom` | `top`         |
+| `visibilityTime` | Number of milliseconds after which Toast automatically hides. Has effect only in conjunction with `autoHide` prop set to `true`                                                                 | `number`          | `4000`        |
+| `autoHide`       | When `true`, the visible Toast automatically hides after a certain number of milliseconds, specified by the `visibilityTime` prop                                                               | `boolean`         | `true`        |
+| `topOffset`      | Offset from the top of the screen (in px). Has effect only when `position` is `top`                                                                                                             | `number`          | `40`          |
+| `bottomOffset`   | Offset from the bottom of the screen (in px). Has effect only when `position` is `bottom`                                                                                                       | `number`          | `40`          |
+| `keyboardOffset` | Offset from the Keyboard (in px). Has effect only when `position` is `bottom` and Keyboard is visible (iOS only)                                                                                | `number`          | `10`          |
+| `onShow`         | Called when the Toast is shown                                                                                                                                                                  | `() => void`      |               |
+| `onHide`         | Called when the Toast hides                                                                                                                                                                     | `() => void`      |               |
+| `onPress`        | Called on Toast press                                                                                                                                                                           | `() => void`      |               |
+| `props`          | Any custom props passed to the specified Toast type. Has effect only when there is a custom Toast type (configured via the `config` prop on the Toast instance) that uses the `props` parameter | `any`             |               |
+</div>
+
+
+

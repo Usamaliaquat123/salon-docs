@@ -1,0 +1,31 @@
+---
+id: imageRenderer
+title: ImageRenderer
+slug: /imageRenderer
+---
+
+A Salon Component that display images
+
+
+```tsx
+import { TextProp } from "react-native";
+import { ImageRenderer } from "@mobileComponent/index";
+import { IImageRendererProps } from "@mobileTypes/index";
+
+<ImageRenderer {...IImageRendererProps} > /** Text **/ </ImageRenderer>;
+```
+
+
+## API 
+
+<div class='table-responsive'>
+
+| Name             | Type                                           | Default                                           | Description                                               |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
+| `source`         |  source of the image                              | `uri`source of the image                           | Text Properties of the Text element                       |                                                  
+| `isLocal`        | Boolean                                          | false                                              | Text Properties of the Text element                       |                                                   
+| `tintColor`      | String                                         | `color`of the tint                                 | Text Properties of the Text element                       |                                                  
+| `Svg`            | Boolean                                           | `Svg` image                                        | Text Properties of the Text element                                   |                                                   
+| `style`          | Image Style                                        | `Props of Text` | Text Properties of the Text element                                   |                                                   
+
+</div>

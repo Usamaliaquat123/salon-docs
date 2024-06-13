@@ -55,7 +55,21 @@
       "collapsed": false,
       "label": "Mobile UI Components",
       "items": [
-        "repo/contributing"
+        "repo/customtext",
+        "repo/error",
+        "repo/localizedcontainer",
+        "repo/toast",
+        "repo/imageslider",
+        "repo/bottomsheet",
+        "repo/loader",
+        "repo/checkbox",
+        "repo/timeslots",
+        "repo/calendar",
+        "repo/imageRenderer",
+        "repo/header",
+        "repo/line",
+        "repo/tags",
+        "repo/flatlistpaginated"
       ]
     }
   ]

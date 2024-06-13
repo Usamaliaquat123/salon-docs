@@ -1,0 +1,42 @@
+---
+id: imageslider
+title: ImageSlider
+slug: /imageslider
+---
+
+ImageSlider for banner image slider
+
+ImageSlider renderer as a banner of the product
+
+### Example 
+
+```tsx
+
+import { ImageSlider } from '@mobileElements/index';
+
+/** mock sample **/
+const data = {
+  photos : [
+    {
+      downloadUrl : "/** image url **/"
+    }
+  ]
+}
+
+<ImageSlider images={data?.photos} showCount autoSwipeSpeed={/** Speed **/} />
+
+```
+
+## API 
+
+<div class='table-responsive'>
+| Name             | Type                                           | Default                                           | Description                                               |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
+| `images`         |  Array                                         |   Array of display images                         | Display of the images                                     |
+| `showCount`      |  Boolean                                       |   Show the count of the slider                    | Count Display                                             |      
+| `autoSwipeSpeed` |  Number                                        |   Speed of the slider                             | this will make a speed of the slider                      |      
+</div>
+
+
+
+

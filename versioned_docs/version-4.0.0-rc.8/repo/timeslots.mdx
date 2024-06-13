@@ -1,0 +1,42 @@
+---
+id: timeslots
+title: TimeSlots
+slug: /timeslots
+---
+
+TimeSlots Component
+
+TimeSlot 
+
+### Example 
+
+```tsx
+/** Importing Loading component */
+import { TimeSlots } from "@mobileComponents/index";
+
+/** Example*/
+ <TimeSlots
+  times={availability}
+  setselectedSlots={(item: any) => handleTabPressTime(item)}
+  selectedSlots={selectedSlots}
+  />
+```
+
+## API 
+
+<div class='table-responsive'>
+
+| Name             | Type                                           | Default                                           | Description                                               |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
+| `times`          |  Array                                         |   Array of Times slots                            | Array of Times slots like ["08:00"]                       |
+| `setselectedSlots`|  Function                                     |  Function that return a selected time             | Function that return a selected time                      |      
+| `selectedSlots` |  String                                         |  Selected time                                    | Selected time                                             |      
+</div>
+
+
+
+
+
+
+
+

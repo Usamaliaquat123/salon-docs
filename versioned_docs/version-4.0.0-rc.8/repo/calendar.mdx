@@ -1,0 +1,54 @@
+---
+id: calendar
+title: Calendar
+slug: /calendar
+---
+
+Calendar Component
+
+Calendar 
+
+### Example 
+
+```tsx
+/** Importing Loading component */
+import { Calendar } from '@mobileComponents/index';
+
+/** Example*/
+  <Calendar
+    selectedDate={selectedDate}
+    setSelectedDate={(date: any) => {
+    console.log(date)
+    setavailability([
+            '09:00',
+            '10:00',
+            '11:00',
+            '12:00',
+            '13:00',
+            '14:00',
+            '15:00',
+            '16:00',
+            '17:00',
+          ]);
+          setSelectedDate(date);
+  }}
+      />
+```
+
+## API 
+
+<div class='table-responsive'>
+
+| Name             | Type                                           | Default                                           | Description                                               |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------- |
+| `selectedDate`   |  moment- DATE                                  |  date                                             | date                       |
+| `setSelectedDate`|  Function                                      |  Function that return a selected date             | Function that return a selected date                       |      
+</div>
+
+
+
+
+
+
+
+
