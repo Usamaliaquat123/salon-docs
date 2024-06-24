@@ -1,0 +1,127 @@
+---
+id: FeaturedSalonCarousel
+title: FeaturedSalonCarousel
+---
+```tsx
+import Image from "next/image"; // component next js
+import img from "./img/docs/web/featuredSalonCarousel-light.png";
+```
+This component is used for home featured salon carousel 
+```tsx
+<div style={{borderRadius:20,overflow:'hidden',padding:10,marginTop:20,marginBottom:20,boxShadow:'5px 5px 20px rgba(0,0,0,0.10)'}}>
+   <Image src={img} alt="" />
+</div>
+```
+
+### Import
+
+```tsx
+"use client";
+import React, { useState } from "react";
+import CarouselBar from "../detailes/CarouselBar";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import { popularCarousel } from "./data";
+import Image from "next/image";
+import { Rating, RoundedStar } from "@smastrom/react-rating";
+import { DiscountShape } from "iconsax-react";
+import Link from "next/link";
+```
+
+### Props
+
+```tsx
+import { popularCarousel } from "./data";
+```
+
+### component
+
+```tsx
+export function FeaturedSalonCarousel() {
+    const [rating, setRating] = useState(4);
+
+    const includedShapesStyles = [RoundedStar].map((itemShapes) => ({
+        itemShapes,
+        activeFillColor: "#FDD501",
+        inactiveFillColor: "#F0F0F1",
+    }));
+    return (
+        <>
+            <div className="mt-10">
+                <CarouselBar
+                    title="Featured Salon"
+                    link="#"
+                    nextId="featuredSalonNextCarousel"
+                    prevId="featuredSalonPrevCarousel"
+                />
+            </div>
+            <Swiper
+                modules={[Navigation]}
+                spaceBetween={20}
+                slidesPerView={1.5}
+                breakpoints={{
+                    768: {
+                        slidesPerView: 2.5,
+                    },
+                }}
+                navigation={{
+                    nextEl: "#featuredSalonNextCarousel",
+                    prevEl: "#featuredSalonPrevCarousel",
+                }}
+            >
+                {popularCarousel.map((item) => (
+                    <SwiperSlide key={item.name}>
+                        <Link
+                            href={`/a/SALOON_1709132497476`}
+                            className="border border-border-primary rounded-xl p-2.5 flex gap-2.5 h-40"
+                        >
+                            <div className="h-full">
+                                <div className="relative h-full aspect-square rounded-xl overflow-hidden">
+                                    <Image src={item.image} alt="" fill />
+                                </div>
+                            </div>
+                            <div className="flex flex-col">
+                                <div className="flex items-center gap-0.5 text-brand-2 text-sm capitalize">
+                                    {item.categories.join(" . ")}
+                                </div>
+                                <p className="text-content-primary font-medium">
+                                    {item.name}
+                                </p>
+                                {includedShapesStyles.map(
+                                    (itemStyles, index) => (
+                                        <Rating
+                                            key={`shape_${index}`}
+                                            value={rating}
+                                            itemStyles={itemStyles}
+                                            style={{
+                                                maxWidth: 100,
+                                            }}
+                                            readOnly
+                                        />
+                                    )
+                                )}
+                                <div className="mt-auto flex items-start gap-1">
+                                    <div className="text-pink">
+                                        <DiscountShape size="20" />
+                                    </div>
+                                    <p className="text-content-body-2 text-sm">
+                                        -20% Off for your art nails for your
+                                        first 2 visits. Book it today !
+                                    </p>
+                                </div>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </>
+    );
+}
+
+```
+
+### Usage
+
+```tsx
+<FeaturedSalonCarousel />
+```

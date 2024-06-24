@@ -1,0 +1,93 @@
+---
+id: ServicesCarousel
+title: ServicesCarousel
+---
+```tsx
+import Image from "next/image"; // component next js
+import img from "./img/docs/web/servicesCarousel-light.png";
+```
+This component is used for home services carousel
+```tsx
+<div style={{borderRadius:20,overflow:'hidden',padding:10,marginTop:20,marginBottom:20,boxShadow:'5px 5px 20px rgba(0,0,0,0.10)'}}>
+   <Image src={img} alt="" />
+</div>
+```
+### Import
+
+```tsx
+"use client";
+import React from "react";
+import CarouselBar from "../detailes/CarouselBar";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import { servicesCarousel } from "./data";
+import Image from "next/image";
+import Link from "next/link";
+```
+
+### Props
+
+```tsx
+import { servicesCarousel } from "./data";
+```
+
+### component
+
+```tsx
+export function ServicesCarousel() {
+    return (
+        <>
+            <div className="mt-10">
+                <CarouselBar
+                    title="services"
+                    link="#"
+                    nextId="servicesNextCarousel"
+                    prevId="servicesPrevCarousel"
+                />
+            </div>
+            <Swiper
+                modules={[Navigation]}
+                spaceBetween={0}
+                slidesPerView={4.5}
+                breakpoints={{
+                    768: {
+                        slidesPerView: 6,
+                    },
+                }}
+                navigation={{
+                    nextEl: "#servicesNextCarousel",
+                    prevEl: "#servicesPrevCarousel",
+                }}
+            >
+                {servicesCarousel.map((item) => (
+                    <SwiperSlide key={item.name}>
+                        <Link
+                            href={`/m/services/${item.name}`}
+                            className="flex flex-col items-center justify-center py-5 gap-3"
+                        >
+                            <div className="rounded-full w-20 aspect-square bg-brand-light flex items-center justify-center">
+                                <Image
+                                    src={item.icon}
+                                    alt={item.name}
+                                    width={44}
+                                    height={44}
+                                />
+                            </div>
+                            <p className="text-center capitalize font-medium text-brand">
+                                {item.name}
+                            </p>
+                        </Link>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </>
+    );
+}
+
+```
+
+### Usage
+
+```tsx
+<ServicesCarousel />
+```

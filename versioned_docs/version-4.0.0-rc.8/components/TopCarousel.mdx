@@ -1,0 +1,97 @@
+---
+id: TopCarousel
+title: TopCarousel
+---
+```tsx
+import Image from "next/image"; // component next js
+import img from "./img/docs/web/topCarousel-light.png";
+```
+This component is used for home top artists carousel
+```tsx
+<div style={{borderRadius:20,overflow:'hidden',padding:10,marginTop:20,marginBottom:20,boxShadow:'5px 5px 20px rgba(0,0,0,0.10)'}}>
+   <Image src={img} alt="" />
+</div>
+```
+### Import
+
+```tsx
+"use client";
+import React from "react";
+import CarouselBar from "../detailes/CarouselBar";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import { topArtistsCarousel } from "./data";
+import Image from "next/image";
+import Link from "next/link";
+```
+
+### Props
+
+```tsx
+import { topArtistsCarousel } from "./data";
+```
+
+### component
+
+```tsx
+export function TopCarousel() {
+    return (
+        <>
+            <div className="mt-10">
+                <CarouselBar
+                    title="Top Artists"
+                    link="#"
+                    nextId="topArtistsNextCarousel"
+                    prevId="topArtistsPrevCarousel"
+                />
+            </div>
+            <Swiper
+                modules={[Navigation]}
+                spaceBetween={20}
+                slidesPerView={3.5}
+                breakpoints={{
+                    768: {
+                        slidesPerView: 4.5,
+                    },
+                }}
+                navigation={{
+                    nextEl: "#topArtistsNextCarousel",
+                    prevEl: "#topArtistsPrevCarousel",
+                }}
+            >
+                {topArtistsCarousel.map((item) => (
+                    <SwiperSlide key={item.name}>
+                        <Link
+                            href={`/specialists/${item.id}/services`}
+                            className="flex flex-col gap-2.5 items-center"
+                        >
+                            <Image
+                                src={item.image}
+                                alt=""
+                                width={80}
+                                height={80}
+                                className="rounded-[40px] w-28 aspect-square"
+                            />
+                            <div className="flex flex-col items-center">
+                                <p className="text-content-primary font-medium capitalize">
+                                    {item.name}
+                                </p>
+                                <div className="flex items-center gap-0.5 text-content-body-2 text-sm capitalize">
+                                    {item.specialist}
+                                </div>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </>
+    );
+}
+
+```
+
+### Usage
+
+```tsx
+<TopCarousel />
+```

@@ -1,0 +1,92 @@
+---
+id: Slider
+title: Slider
+---
+```tsx
+import Image from "next/image"; // component next js
+import img from "./img/docs/web/slider-light.png";
+```
+This component is used for home slider
+```tsx
+<div style={{borderRadius:20,overflow:'hidden',padding:10,marginTop:20,marginBottom:20,boxShadow:'5px 5px 20px rgba(0,0,0,0.10)'}}>
+   <Image src={img} alt="" />
+</div>
+```
+### Import
+
+```tsx
+"use client";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, EffectFade } from "swiper/modules";
+import { slider } from "./data";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
+import "swiper/css/effect-fade";
+```
+
+### Props
+
+```tsx
+import { slider } from "./data";
+```
+
+### component
+
+```tsx
+export function Slider() {
+    return (
+        <div className="relative">
+            <Swiper
+                modules={[Navigation, Pagination, EffectFade]}
+                spaceBetween={0}
+                effect={"fade"}
+                slidesPerView={1}
+                navigation={{
+                    nextEl: "#sliderNextCarousel",
+                    prevEl: "#sliderPrevCarousel",
+                }}
+                pagination={{
+                    el: ".bullets",
+                    clickable: true,
+                }}
+            >
+                {slider.map((item, index) => (
+                    <SwiperSlide
+                        key={`slider-${index}`}
+                        className="h-52 sm:h-96 rounded-[80px] overflow-hidden"
+                    >
+                        <Link
+                            href={item.link}
+                            className="flex flex-col items-center justify-center py-5 gap-3 relative w-full h-full"
+                        >
+                            <Image src={item.image} alt="" fill />
+                        </Link>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+
+            {/* Navigation button */}
+            <div className="absolute bottom-0 w-full flex justify-evenly">
+                <button id="sliderPrevCarousel" className="carouselNavigation">
+                    <ArrowLeft2 size="30" />
+                </button>
+                <button id="sliderNextCarousel" className="carouselNavigation">
+                    <ArrowRight2 size="30" />
+                </button>
+            </div>
+
+            {/* bullets */}
+            <div className="bullets flex justify-center gap-0.5 py-3 z-10"></div>
+        </div>
+    );
+}
+
+```
+
+### Usage
+
+```tsx
+<Slider />
+```

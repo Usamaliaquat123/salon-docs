@@ -46,7 +46,13 @@
         "components/shadcn-ui-directory",
         "components/showCityList",
         "components/textInput",
-        "components/upcomingList"
+        "components/upcomingList",
+        "components/CarouselBar",
+        "components/FeaturedSalonCarousel",
+        "components/PopularCarousel",
+        "components/ServicesCarousel",
+        "components/Slider",
+        "components/TopCarousel"
       ]
 
     },

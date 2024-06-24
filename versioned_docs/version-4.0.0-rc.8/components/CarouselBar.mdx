@@ -1,0 +1,84 @@
+---
+id: CarouselBar
+title: CarouselBar
+---
+```tsx
+import Image from "next/image"; // component next
+import img from "./img/docs/web/carouselBar-light.png";
+```
+
+This component is used for all navigation carousel in home page
+```tsx
+<div style={{borderRadius:20,overflow:'hidden',padding:10,marginTop:20,marginBottom:20,boxShadow:'5px 5px 20px rgba(0,0,0,0.10)'}}>
+   <Image src={img} alt="" />
+</div>
+```
+
+```tsx
+// Config on Swiper for nextId='' and prevId='' navigation
+<Swiper
+navigation={{
+    nextEl: "#customIdNextCarousel",
+    prevEl: "#customIdPrevCarousel",
+}}
+>
+
+</Swiper>
+```
+
+### Import
+
+```tsx
+import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
+import Link from "next/link";
+import React from "react";
+```
+
+### Props
+
+```tsx
+type Props = {
+    title: string;
+    nextId: string;
+    prevId: string;
+    link: string;   // View all - href
+};
+```
+
+### component
+
+```tsx
+export default function CarouselBar(props: Props) {
+    const { title, nextId, prevId, link } = props;
+    return (
+        <div className="flex items-center w-full mb-4">
+
+            <span className="text-lg text-content-primary font-medium capitalize">
+                {title}
+            </span>
+
+            <div className="px-5 flex items-center gap-4 text-content-body-2">
+                <button id={prevId} className="carouselNavigation">
+                    <ArrowLeft2 size="20" />
+                </button>
+                <button id={nextId} className="carouselNavigation">
+                    <ArrowRight2 size="20" />
+                </button>
+            </div>
+
+            <Link
+                href={link}
+                className="text-sm text-brand-2 ms-auto hover:scale-105 duration-100"
+            >
+                View all
+            </Link>
+        </div>
+    );
+}
+```
+
+### Usage
+
+```tsx
+<CarouselBar title="" link="" nextId="" prevId="" />
+``` 
